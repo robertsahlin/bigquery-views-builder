@@ -1,0 +1,8 @@
+# gcloud builds submit --config=cloudbuild.yaml .
+steps:
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: 'bash'
+  args: ['cicd.sh', '$PROJECT_ID', '${_VIEWS_DIR}']
+timeout: 1200s
+substitutions:
+  _VIEWS_DIR: views
